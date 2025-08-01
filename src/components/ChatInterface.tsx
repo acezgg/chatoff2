@@ -1,12 +1,9 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Plus, Send, Paperclip, Mic } from "lucide-react";
-
 export const ChatInterface = () => {
   const [message, setMessage] = useState("");
-
-  return (
-    <div className="flex h-screen bg-background">
+  return <div className="flex h-screen bg-background">
       {/* Sidebar */}
       <div className="w-64 bg-chat-sidebar border-r border-border/50 flex flex-col">
         <div className="p-4">
@@ -51,29 +48,17 @@ export const ChatInterface = () => {
                 <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-foreground">
                   <Paperclip size={20} />
                 </Button>
-                <textarea
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  placeholder="Message..."
-                  className="flex-1 bg-transparent border-0 outline-none resize-none text-foreground placeholder:text-muted-foreground min-h-[24px] max-h-32"
-                  rows={1}
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter' && !e.shiftKey) {
-                      e.preventDefault();
-                      // Handle send message
-                    }
-                  }}
-                />
+                <textarea value={message} onChange={e => setMessage(e.target.value)} placeholder="Message..." rows={1} onKeyDown={e => {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                  e.preventDefault();
+                  // Handle send message
+                }
+              }} className="flex-1 bg-transparent border-0 outline-none resize-none text-foreground placeholder:text-muted-foreground min-h-[24px] max-h-32 my-[8px]" />
                 <div className="flex items-center gap-2">
                   <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-foreground">
                     <Mic size={20} />
                   </Button>
-                  <Button 
-                    variant="default" 
-                    size="icon" 
-                    className="bg-brand-primary hover:bg-brand-primary/90 text-white rounded-lg"
-                    disabled={!message.trim()}
-                  >
+                  <Button variant="default" size="icon" className="bg-brand-primary hover:bg-brand-primary/90 text-white rounded-lg" disabled={!message.trim()}>
                     <Send size={18} />
                   </Button>
                 </div>
@@ -82,6 +67,5 @@ export const ChatInterface = () => {
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
