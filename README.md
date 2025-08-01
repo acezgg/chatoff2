@@ -1,4 +1,4 @@
-git clone 
-cd chatoff2
-npm install @vitejs/plugin-react-swc --save-dev
-npm run dev
+git clone https://github.com/acezgg/chatoff2.git <br>
+cd chatoff2 <br>
+npm install @vitejs/plugin-react-swc --save-dev <br>
+npm run dev <br>
